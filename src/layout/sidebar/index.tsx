@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { DoubleList, Iconify, SingleList } from "../../components/atoms";
-import logo from "../../../public/logo2.png";
 import Image from "next/image";
 import { lists } from "../../utils";
 
@@ -15,8 +14,10 @@ export default function Sidebar(props: {
         props.fullWidth ? "w-full md:w-72" : "w-0 hidden"
       } h-full z-20 bg-teal-800 transition-all`}
     >
-      <div className="h-20 p-3 flex justify-between items-center">
-        <Image src={logo} alt="logo" width={"200px"} height="85px" />
+      <div className="h-20 p-3 flex justify-between px-5 items-center">
+        <p className="text-2xl font-semibold text-white">
+          Logo
+        </p>
         <Iconify
           icon="bi:arrow-left-circle-fill"
           other={"hover:text-gray-100"}
