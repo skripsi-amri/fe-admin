@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Iconify, SingleList } from "../../components/atoms";
+import { DoubleList, Iconify, SingleList } from "../../components/atoms";
 import { lists } from "../../utils";
 
 export default function Sidebar(props: {
@@ -30,7 +30,7 @@ export default function Sidebar(props: {
             url={"/app"}
           />
           {lists.map((list, i) => {
-            return (
+            return list.type !== "double" ? (
               <div key={i}>
                 <SingleList
                   icon={list.icon}
@@ -41,6 +41,14 @@ export default function Sidebar(props: {
                   }
                   child={list.title}
                   url={list.url !== undefined ? list.url : ""}
+                />
+              </div>
+            ) : (
+              <div key={i}>
+                <DoubleList
+                  icon={list.icon}
+                  child={list.title}
+                  secondList={list.secondList}
                 />
               </div>
             );

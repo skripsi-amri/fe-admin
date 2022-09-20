@@ -4,13 +4,13 @@ export default function CardsWidget() {
   return (
     <div className="flex flex-col md:flex-row w-full justify-between">
       <CardWidget
-        icon="mdi:currency-usd"
+        icon="bxs:archive-in"
         title={"Barang Masuk"}
         subtitle={"2 item"}
         bgColor="blue"
       />
       <CardWidget
-        icon="mdi:account-group-outline"
+        icon="bxs:archive-out"
         title={"Barang Keluar"}
         subtitle={"3 item"}
         bgColor="green"
