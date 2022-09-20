@@ -5,27 +5,21 @@ export default function CardsWidget() {
     <div className="flex flex-col md:flex-row w-full justify-between">
       <CardWidget
         icon="mdi:currency-usd"
-        title={"Pemasok"}
-        subtitle={"2 Perusahaan"}
+        title={"Barang Masuk"}
+        subtitle={"2 item"}
         bgColor="blue"
       />
       <CardWidget
         icon="mdi:account-group-outline"
-        title={"Mitra"}
-        subtitle={"3 Orang"}
+        title={"Barang Keluar"}
+        subtitle={"3 item"}
         bgColor="green"
       />
       <CardWidget
         icon="icon-park-outline:ad-product"
-        title={"Barang"}
+        title={"Total Items"}
         subtitle={"232 Items"}
         bgColor="gray"
-      />
-      <CardWidget
-        icon="icon-park-solid:sales-report"
-        title={"Penjualan"}
-        subtitle={"Rp 500.000"}
-        bgColor="orange"
       />
     </div>
   );

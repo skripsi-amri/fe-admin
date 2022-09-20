@@ -32,10 +32,10 @@ export default function ImageInput(props: {
         }}
         className="flex items-center cursor-pointer w-fit p-2"
       >
-        <Iconify icon="bxs:image-add" color="teal" size="5xl" />
-        <p className="font-semibold text-teal-800">Upload Foto</p>
+        <Iconify icon="bxs:image-add" color="sky" size="5xl" />
+        <p className="font-semibold text-sky-800">Upload Foto</p>
       </div>
-      {/* <div className="flex items-center flex-wrap">
+      {/* <div className="flex items-center flex-wrap">s
         {props.images.map((image: any, i: number) => (
           <div
             key={i}

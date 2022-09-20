@@ -29,7 +29,7 @@ function Textfield(props: {
     <div className={`${props.hidden ? "hidden" : ""} ${props.other}`}>
       <label
         className={`
-        text-base capitalize font-semibold text-teal-900 select-none
+        text-base capitalize font-semibold text-sky-900 select-none
         ${props.label ? "" : "hidden"} `}
       >
         {props.label}

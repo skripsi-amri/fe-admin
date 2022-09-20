@@ -23,7 +23,7 @@ export default function SelectInput(props: {
       <label
         className={`${
           props.label ? "" : "hidden"
-        } text-base capitalize font-semibold text-teal-900 select-none`}
+        } text-base capitalize font-semibold text-sky-900 select-none`}
       >
         {props.label}
       </label>
