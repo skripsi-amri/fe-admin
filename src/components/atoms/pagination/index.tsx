@@ -18,7 +18,7 @@ const Pagination = (props: {
         <Button
           child={el}
           key={index}
-          backgroundColor={props.page === el ? "sky" : "transparent"}
+          backgroundColor={props.page === el ? "blue" : "transparent"}
           color={props.page === el ? "white" : "black"}
           other={"rounded-full"}
           onClick={() => props.setPage(el)}

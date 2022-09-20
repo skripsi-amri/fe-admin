@@ -11,7 +11,7 @@ export default function Sidebar(props: {
     <div
       className={`fixed overflow-auto ${
         props.fullWidth ? "w-full md:w-72" : "w-0 hidden"
-      } h-full z-20 bg-sky-800 transition-all`}
+      } h-full z-20 bg-blue-800 transition-all`}
     >
       <div className="h-20 p-3 flex justify-between px-5 items-center">
         <p className="text-2xl font-semibold text-white">Logo</p>

@@ -26,14 +26,14 @@ export default function Table(props: {
       >
         <thead>
           <tr className="capitalize">
-            <th className="p-3 border-b border-gray-300 text-sky-900 text-left">
+            <th className="p-3 border-b border-gray-300 text-blue-900 text-left">
               {"No."}
             </th>
             {column.map((col, i) => (
               <th
                 onClick={() => props.handleSort(col.dataIndex)}
                 key={i}
-                className={`p-3 border-b border-gray-300 text-sky-900 text-left ${
+                className={`p-3 border-b border-gray-300 text-blue-900 text-left ${
                   col.title === "aksi" ? "text-center" : ""
                 }`}
               >
@@ -45,13 +45,13 @@ export default function Table(props: {
         <tbody>
           {slice.length > 0 ? (
             slice.map((item, i) => (
-              <tr key={i} className="hover:bg-sky-50 transition">
-                <td className="p-2 border-b border-gray-300 text-sky-800">
+              <tr key={i} className="hover:bg-blue-50 transition">
+                <td className="p-2 border-b border-gray-300 text-blue-800">
                   {page > 1 ? i + 1 + Number(props.rowPerPage) : i + 1}
                 </td>
                 {column.map((col, i2) => (
                   <td
-                    className="p-2 border-b border-gray-300 text-sky-800"
+                    className="p-2 border-b border-gray-300 text-blue-800"
                     key={i2}
                   >
                     {col.dataIndex ? (
@@ -64,7 +64,7 @@ export default function Table(props: {
               </tr>
             ))
           ) : (
-            <tr className="p-1 text-sky-900 text-center">
+            <tr className="p-1 text-blue-900 text-center">
               <td colSpan={props.column.length + 1}>Data tidak ditemukan</td>
             </tr>
           )}

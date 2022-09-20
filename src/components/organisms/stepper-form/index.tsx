@@ -41,7 +41,7 @@ const StepperForm = (props: {
               />
               <Button
                 onClick={props.handleSubmit}
-                backgroundColor="sky"
+                backgroundColor="blue"
                 child="Simpan Data"
               />
             </div>

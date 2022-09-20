@@ -28,7 +28,7 @@ export default function DoubleList(props: {
     <>
       <li
         onClick={() => setOpen(!open)}
-        className={`mb-3 pr-2 font-medium text-md cursor-pointer flex justify-between items-center transition-all hover:text-sky-800 hover:bg-sky-50 hover:border-l-2 hover:border-sky-900`}
+        className={`mb-3 pr-2 font-medium text-md cursor-pointer flex justify-between items-center transition-all hover:text-blue-800 hover:bg-blue-50 hover:border-l-2 hover:border-blue-900`}
       >
         <div className="flex items-center py-2 px-7">
           <Iconify color="yellow" other={"mr-2"} icon={props.icon} />
@@ -45,9 +45,9 @@ export default function DoubleList(props: {
                 key={i}
                 className={`${
                   router.pathname.includes(item.url)
-                    ? "border-l-2 border-sky-500 bg-sky-50 text-sky-800 rounded-l"
+                    ? "border-l-2 border-blue-500 bg-blue-50 text-blue-800 rounded-l"
                     : ""
-                } mb-3 ml-5 font-medium flex items-center text-md cursor-pointer transition py-2 px-7 hover:border-l-2 hover:border-sky-50`}
+                } mb-3 ml-5 font-medium flex items-center text-md cursor-pointer transition py-2 px-7 hover:border-l-2 hover:border-blue-50`}
               >
                 <Iconify color="yellow" other={"mr-2"} icon={props.icon} />
                 <p className="select-none capitalize">{item.title}</p>

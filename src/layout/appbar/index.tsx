@@ -48,25 +48,25 @@ function AppBar(props: {
   };
 
   return (
-    <div className="shadow bg-white shadow-sky-800 p-5 flex justify-between px-10 items-center">
+    <div className="shadow bg-white shadow-blue-800 p-5 flex justify-between px-10 items-center">
       <div>
         <IconButton
           other={`mr-2 ${props.fullWidth ? "hidden" : ""}`}
           backgroundColor="transparent"
-          color="sky"
+          color="blue"
           icon={"dashicons:menu-alt3"}
           onClick={() => props.setFullWidth(true)}
         />
         <IconButton
           other={"mr-2"}
           backgroundColor="transparent"
-          color="sky"
+          color="blue"
           icon={"fa:search"}
         />
         <IconButton
           other={"hidden md:inline"}
           backgroundColor="transparent"
-          color="sky"
+          color="blue"
           icon={iconResize}
           onClick={handleFullScreen}
         />
@@ -75,7 +75,7 @@ function AppBar(props: {
         onClick={() => setShowProfileMenu(!showProfileMenu)}
         className="flex items-center cursor-pointer p-2"
       >
-        <Iconify icon="mdi:face-man-profile" color="sky" other={"mr-2"} />
+        <Iconify icon="mdi:face-man-profile" color="blue" other={"mr-2"} />
         <Typograhpy other={"select-none"} child="Superadmin" />
         <PopUpMenu
           showProfileMenu={showProfileMenu}
@@ -100,7 +100,7 @@ const PopUpMenu = (props: {
     <div
       className={`${
         props.showProfileMenu ? "absolute" : "hidden"
-      } right-0 z-20 border w-56 py-2 mt-52 mr-16 overflow-hidden bg-white rounded-md shadow-sm shadow-sky-50`}
+      } right-0 z-20 border w-56 py-2 mt-52 mr-16 overflow-hidden bg-white rounded-md shadow-sm shadow-blue-50`}
     >
       <div className="flex items-center cursor-default p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -111,7 +111,7 @@ const PopUpMenu = (props: {
         /> */}
         <Iconify
           icon="mdi:face-man-profile"
-          color="sky"
+          color="blue"
           other={"flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"}
         />
         <div className="mx-1">
@@ -122,17 +122,17 @@ const PopUpMenu = (props: {
 
       <hr className="border-gray-200" />
 
-      <div className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-sky-50">
+      <div className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-blue-50">
         <p>My Profile</p>
       </div>
 
-      <div className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-sky-50">
+      <div className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-blue-50">
         <p>Pengaturan</p>
       </div>
 
       <div
         onClick={props.handleLogout}
-        className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-sky-50"
+        className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-blue-50"
       >
         <p>Sign Out</p>
       </div>

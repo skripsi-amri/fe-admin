@@ -9,7 +9,7 @@ export default function Iconify(props: {
     | "yellow"
     | "orange"
     | "transparent"
-    | "sky"
+    | "blue"
     | "white"
     | "black";
   other?: any;
@@ -45,7 +45,7 @@ export default function Iconify(props: {
           ? "text-5xl"
           : "text-xl"
       }
-        ${color === "sky" ? "text-sky-500 hover:text-sky-600" : ""}
+        ${color === "blue" ? "text-blue-500 hover:text-blue-600" : ""}
         ${color === "red" ? "text-red-500 hover:text-red-600" : ""}
         ${color === "blue" ? "text-blue-500 hover:text-blue-600" : ""}
         ${color === "green" ? "text-green-500 hover:text-green-600" : ""}

@@ -12,7 +12,7 @@ function Button(props: {
     | "yellow"
     | "orange"
     | "transparent"
-    | "sky";
+    | "blue";
   other?: any;
   form?: string;
   disabled?: boolean;
@@ -20,7 +20,7 @@ function Button(props: {
   icon?: string;
   id?: string;
 }) {
-  const bgColor = props.backgroundColor || "sky";
+  const bgColor = props.backgroundColor || "blue";
   const color = props.color || "#fff";
 
   return (
@@ -36,7 +36,7 @@ function Button(props: {
             ? "bg-gray-500 cursor-not-allowed"
             : "cursor-pointer"
         }
-        ${bgColor === "sky" ? "bg-sky-500 hover:bg-sky-600" : ""}
+        ${bgColor === "blue" ? "bg-blue-500 hover:bg-blue-600" : ""}
         ${bgColor === "red" ? "bg-red-500 hover:bg-red-600" : ""}
         ${bgColor === "blue" ? "bg-blue-500 hover:bg-blue-600" : ""}
         ${bgColor === "green" ? "bg-green-500 hover:bg-green-600" : ""}
@@ -78,7 +78,7 @@ function IconButton(props: {
     | "yellow"
     | "orange"
     | "transparent"
-    | "sky"
+    | "blue"
     | "white"
     | "black";
   backgroundColor?:
@@ -88,7 +88,7 @@ function IconButton(props: {
     | "yellow"
     | "orange"
     | "transparent"
-    | "sky";
+    | "blue";
   other?: any;
   disabled?: boolean;
   otherIcon?: any;

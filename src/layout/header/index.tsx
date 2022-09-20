@@ -7,13 +7,13 @@ export default function Header(props: { pageName: string; icon: string }) {
         <Iconify
           size="2xl"
           icon={props.icon}
-          other={"mr-2 bg-sky-800 p-1 rounded"}
+          other={"mr-2 bg-blue-800 p-1 rounded"}
           color="white"
         />
-        <h1 className="text-sky-800 text-xl select-none">|</h1>
+        <h1 className="text-blue-800 text-xl select-none">|</h1>
         <Typograhpy
           variant="xl"
-          other={"ml-2 text-sky-800 select-none"}
+          other={"ml-2 text-blue-800 select-none"}
           child={props.pageName}
         />
       </div>
