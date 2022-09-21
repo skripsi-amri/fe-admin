@@ -5,8 +5,8 @@ const lists = [
         icon: "icon-park-outline:ad-product",
         secondList: [
             {
-                title: "Brand",
-                url: "/app/data/brand",
+                title: "merk",
+                url: "/app/data/merk",
             },
             {
                 title: "ukuran",
