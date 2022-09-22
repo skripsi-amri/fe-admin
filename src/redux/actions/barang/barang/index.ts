@@ -17,16 +17,10 @@ export const getBarang = (id: string) => (dispatch: any) => {
 }
 
 export const tambahBarang = (data: {
-    nama_barang: string,
-    id_pemasok: string,
-    id_kategori: string,
-    id_satuan: string,
+    nama_item: string,
     id_merk: string,
     id_ukuran: string,
-    id_tipe: string,
     stok: number,
-    harga_beli: number,
-    images: any,
 }) => (dispatch: any) => {
     return new Promise((resolve, reject) => {
         api.post('/bbarang', data)
@@ -36,16 +30,10 @@ export const tambahBarang = (data: {
 }
 
 export const editBarang = (id: string, data: {
-    nama_barang: string,
-    id_pemasok: string,
-    id_kategori: string,
-    id_satuan: string,
+    nama_item: string,
     id_merk: string,
     id_ukuran: string,
-    id_tipe: string,
     stok: number,
-    harga_beli: number,
-    images: any,
 }) => (dispatch: any) => {
     return new Promise((resolve, reject) => {
         api.patch(`/bbarang/${id}`, data)
