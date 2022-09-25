@@ -1,64 +1,94 @@
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { IconButton } from "../../../src/components/atoms";
 import { DataTable } from "../../../src/layout";
+import {
+  getAllBarangKeluar,
+  hapusBarangKeluar,
+} from "../../../src/redux/actions";
 import { DashboardLayout } from "../../../src/template";
+import { handleRemove } from "../../../src/utils";
 
-const column = [
-  {
-    title: "Nama Item",
-    dataIndex: "nama_item",
-  },
-  {
-    title: "Nama gudang",
-    dataIndex: "nama_gudang",
-  },
-  {
-    title: "Tanggal keluar",
-    dataIndex: "tanggal_keluar",
-  },
-  {
-    title: "aksi",
-    type: "custom",
-    cell: (row: any) => (
-      <div className="text-center">
-        <IconButton
-          other={"mr-3"}
-          backgroundColor="transparent"
-          color="blue"
-          icon="akar-icons:eye"
-          onClick={() => {}}
-        />
-        <IconButton
-          other={"mr-3"}
-          backgroundColor="transparent"
-          color="orange"
-          icon="bxs:edit"
-          onClick={() => {}}
-        />
-        <IconButton
-          backgroundColor="transparent"
-          color="red"
-          icon="bi:trash-fill"
-          onClick={() => {}}
-        />
-      </div>
-    ),
-  },
-];
+function BarangKeluar(props: {
+  getAllBarangKeluar: () => Promise<any>;
+  hapusBarangKeluar: (id: string) => Promise<any>;
+}) {
+  const router = useRouter();
+  const [data, setData] = useState([]);
 
-const data = [
-  {
-    nama_item: "Murano White",
-    nama_gudang: "Gudang 1",
-    tanggal_keluar: "18 04 2022",
-  },
-];
+  const column = [
+    {
+      title: "Nama Item",
+      dataIndex: "nama_item",
+    },
+    {
+      title: "Nama gudang",
+      dataIndex: "nama_gudang",
+    },
+    {
+      title: "Tanggal Keluar",
+      dataIndex: "tanggal_keluar",
+    },
+    {
+      title: "aksi",
+      type: "custom",
+      cell: (row: any) => (
+        <div className="text-center">
+          <IconButton
+            other={"mr-3"}
+            backgroundColor="transparent"
+            color="blue"
+            icon="akar-icons:eye"
+            onClick={() => {}}
+          />
+          <IconButton
+            other={"mr-3"}
+            backgroundColor="transparent"
+            color="orange"
+            icon="bxs:edit"
+            onClick={() => router.push(`${router.pathname}/form/${row._id}`)}
+          />
+          <IconButton
+            backgroundColor="transparent"
+            color="red"
+            icon="bi:trash-fill"
+            onClick={() =>
+              handleRemove(row._id, props.hapusBarangKeluar, setData, data)
+            }
+          />
+        </div>
+      ),
+    },
+  ];
 
-export default function BarangKeluar() {
+  useEffect(() => {
+    props
+      .getAllBarangKeluar()
+      .then((res) => {
+        setData(res.data.result);
+      })
+      .catch((err) => console.log(err));
+  }, [props]);
+
   return (
     <DashboardLayout
       pageName="Barang Keluar"
       icon="bxs:archive-out"
-      main={<DataTable column={column} data={data} rowsPerPage={[5, 10, 50, 100]} />}
+      main={
+        <DataTable
+          column={column}
+          data={data}
+          rowsPerPage={[10, 25, 50, 100]}
+        />
+      }
     />
   );
 }
+
+const actions = (dispatch: any) => ({
+  getAllBarangKeluar: () => dispatch(getAllBarangKeluar()),
+  hapusBarangKeluar: (id: string) => dispatch(hapusBarangKeluar(id)),
+});
+
+export default connect(null, actions)(BarangKeluar);

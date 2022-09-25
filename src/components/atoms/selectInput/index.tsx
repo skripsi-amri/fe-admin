@@ -43,15 +43,6 @@ export default function SelectInput(props: {
             borderColor: isNull ? "#D32F2F" : "#555",
             backgroundColor: isNull ? "#FFCDD2" : "#fff",
           }),
-          option: (style, { isSelected }) => ({
-            ...style,
-            backgroundColor: isSelected ? "#008080" : "#fff",
-            color: isSelected ? "#fff" : "#000",
-            ":hover": {
-              ...style[":hover"],
-              backgroundColor: isSelected ? "#008080" : "#E0F2F1",
-            },
-          }),
         }}
       />
       <div className={`${isNull ? "block" : "hidden"}`}>

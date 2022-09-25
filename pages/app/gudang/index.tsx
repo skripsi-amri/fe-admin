@@ -7,7 +7,7 @@ import { getAllGudang, hapusGudang } from "../../../src/redux/actions";
 import { DashboardLayout } from "../../../src/template";
 import { handleRemove } from "../../../src/utils";
 
-function Items(props: {
+function Gudang(props: {
   getAllGudang: () => Promise<any>;
   hapusGudang: (id: string) => Promise<any>;
 }) {
@@ -84,4 +84,4 @@ const actions = (dispatch: any) => ({
   hapusGudang: (id: string) => dispatch(hapusGudang(id)),
 });
 
-export default connect(null, actions)(Items);
+export default connect(null, actions)(Gudang);
