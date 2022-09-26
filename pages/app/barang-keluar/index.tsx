@@ -19,8 +19,8 @@ function BarangKeluar(props: {
 
   const column = [
     {
-      title: "Nama Item",
-      dataIndex: "nama_item",
+      title: "Nomor Stk",
+      dataIndex: "no_stk",
     },
     {
       title: "Nama gudang",
@@ -76,11 +76,20 @@ function BarangKeluar(props: {
       pageName="Barang Keluar"
       icon="bxs:archive-out"
       main={
-        <DataTable
-          column={column}
-          data={data}
-          rowsPerPage={[10, 25, 50, 100]}
-        />
+        <div>
+          <DataTable
+            column={column}
+            data={data}
+            rowsPerPage={[10, 25, 50, 100]}
+          />
+          <p
+            className={`text-sm text-sky-800 mt-2 ${
+              data.length < 1 ? "hidden" : ""
+            }`}
+          >
+            ** STK adalah Surat Tanda Keluar
+          </p>
+        </div>
       }
     />
   );

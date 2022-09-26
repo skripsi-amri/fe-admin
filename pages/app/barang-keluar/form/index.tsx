@@ -3,13 +3,15 @@ import { Notify } from "notiflix";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { Button } from "../../../../src/components/atoms";
-import { Table } from "../../../../src/components/molecules";
-import { TextfieldGroup } from "../../../../src/components/organisms";
+import {
+  FormWithTable,
+  TextfieldGroup,
+} from "../../../../src/components/organisms";
 import { ValidationSubmit } from "../../../../src/functions";
 import {
   getAllBarang,
   getAllGudang,
-  tambahBarang,
+  tambahBarangKeluar,
 } from "../../../../src/redux/actions";
 import { DashboardLayout } from "../../../../src/template";
 
@@ -38,22 +40,31 @@ const formItems = [
   },
 ];
 
-const FormBarangKeluar = (props: {
-  tambahBarang: (data: any) => Promise<any>;
+const column = [
+  {
+    title: "nama item",
+    dataIndex: "nama_item",
+  },
+  {
+    title: "qty",
+    dataIndex: "qty",
+  },
+];
+
+const FormBarang = (props: {
+  tambahBarangKeluar: (data: any) => Promise<any>;
 }) => {
   const router = useRouter();
   const [data, setData] = useState({} as any);
-  const [dataBarang, setDataBarang] = useState([]);
   const [checkForm, setCheckForm] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     const check = ValidationSubmit(form, data);
     setCheckForm(!check);
     if (check) {
       props
-        .tambahBarang(data)
+        .tambahBarangKeluar(data)
         .then((res) => {
           Notify.success(res.data.message, {
             position: "right-bottom",
@@ -71,8 +82,6 @@ const FormBarangKeluar = (props: {
     }
   };
 
-  const addBarang = (data: {}) => {};
-
   return (
     <DashboardLayout
       icon="bxs:archive-out"
@@ -87,28 +96,13 @@ const FormBarangKeluar = (props: {
             setData={setData}
             data={data}
           />
-          <div className="w-full md:w-1/2">
-            <TextfieldGroup
-              setError={setError}
-              error={error}
-              showError={checkForm}
-              form={formItems}
-              setData={setData}
-              data={data}
-            />
-            <div className="mt-2 flex justify-end">
-              <Button child="Tambah Items" backgroundColor="green" />
-            </div>
-          </div>
-          <div className="my-3">
-            <Table
-              column={[]}
-              data={dataBarang}
-              rowPerPage={25}
-              handleSort={() => {}}
-            />
-          </div>
-          <Button child="Simpan Data" />
+          <FormWithTable
+            column={column}
+            form={formItems}
+            setData={setData}
+            data={data}
+          />
+          <Button onClick={handleSubmit} child="Simpan Data" />
         </div>
       }
     />
@@ -116,7 +110,7 @@ const FormBarangKeluar = (props: {
 };
 
 const actions = (dispatch: any) => ({
-  tambahBarang: (data: any) => dispatch(tambahBarang(data)),
+  tambahBarangKeluar: (data: any) => dispatch(tambahBarangKeluar(data)),
 });
 
-export default connect(null, actions)(FormBarangKeluar);
+export default connect(null, actions)(FormBarang);

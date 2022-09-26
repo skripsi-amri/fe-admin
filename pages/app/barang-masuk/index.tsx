@@ -19,8 +19,8 @@ function BarangMasuk(props: {
 
   const column = [
     {
-      title: "Nama Item",
-      dataIndex: "nama_item",
+      title: "Nomor Stm",
+      dataIndex: "no_stm",
     },
     {
       title: "Nama gudang",
@@ -76,11 +76,20 @@ function BarangMasuk(props: {
       pageName="Barang Masuk"
       icon="bxs:archive-in"
       main={
-        <DataTable
-          column={column}
-          data={data}
-          rowsPerPage={[10, 25, 50, 100]}
-        />
+        <div>
+          <DataTable
+            column={column}
+            data={data}
+            rowsPerPage={[10, 25, 50, 100]}
+          />
+          <p
+            className={`text-sm text-sky-800 mt-2 ${
+              data.length < 1 ? "hidden" : ""
+            }`}
+          >
+            ** STM adalah Surat Tanda Masuk
+          </p>
+        </div>
       }
     />
   );
