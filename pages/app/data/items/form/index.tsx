@@ -27,11 +27,6 @@ const form = [
     apiOptions: getAllUkuranBarang,
     labelOptions: "nama_ukuran",
   },
-  {
-    label: "Stok",
-    nama: "stok",
-    type: "number"
-  },
 ];
 
 const FormBarang = (props: { tambahBarang: (data: any) => Promise<any> }) => {

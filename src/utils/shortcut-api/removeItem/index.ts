@@ -26,8 +26,8 @@ const handleRemove = (id: any, deleteApi: (id: string) => Promise<any>, setData:
             });
         },
         {
-            titleColor: "#00695C",
-            okButtonBackground: "#00695C",
+            titleColor: "#0277bd",
+            okButtonBackground: "#0277bd",
         }
     );
 };

@@ -18,7 +18,7 @@ export default function Table(props: {
   }, [props.data]);
 
   return (
-    <div className="rounded-t-md border bg-white">
+    <div className="rounded-t-md border bg-white capitalize">
       <table
         className={`table-auto sm:table block overflow-x-scroll w-full border-b border-gray-300 ${
           column.length > 7 ? "block overflow-x-scroll" : ""
