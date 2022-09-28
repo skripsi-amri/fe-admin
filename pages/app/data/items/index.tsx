@@ -24,11 +24,11 @@ function Items(props: {
     },
     {
       title: "Brand",
-      dataIndex: "nama_brand",
+      dataIndex: "merk",
     },
     {
       title: "Ukuran",
-      dataIndex: "nama_ukuran",
+      dataIndex: "ukuran",
     },
     {
       title: "Stok",

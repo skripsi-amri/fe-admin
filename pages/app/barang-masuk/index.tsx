@@ -24,7 +24,7 @@ function BarangMasuk(props: {
     },
     {
       title: "Nama gudang",
-      dataIndex: "nama_gudang",
+      dataIndex: "gudang",
     },
     {
       title: "Tanggal Masuk",
