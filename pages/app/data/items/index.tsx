@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { IconButton } from "../../../../src/components/atoms";
 import { DataTable } from "../../../../src/layout";
-import {
-  getAllBarang,
-  hapusBarang,
-} from "../../../../src/redux/actions";
+import { getAllBarang, hapusBarang } from "../../../../src/redux/actions";
 import { DashboardLayout } from "../../../../src/template";
 import { handleRemove } from "../../../../src/utils";
 
@@ -44,7 +41,7 @@ function Items(props: {
             backgroundColor="transparent"
             color="blue"
             icon="akar-icons:eye"
-            onClick={() => {}}
+            onClick={() => router.push(`${router.pathname}/view/${row._id}`)}
           />
           <IconButton
             other={"mr-3"}

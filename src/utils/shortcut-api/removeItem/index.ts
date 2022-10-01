@@ -9,13 +9,14 @@ const handleRemove = (id: any, deleteApi: (id: string) => Promise<any>, setData:
         () => {
             deleteApi(id)
                 .then((res) => {
+                    console.log(res)
                     setData(data.filter((item: any) => item._id !== id));
                     Notify.success(res.data.message, {
                         position: "right-bottom",
                     });
                 })
                 .catch((err) => {
-                    Notify.failure(err.data.message, {
+                    Notify.failure(err.response.data.message, {
                         position: "right-bottom",
                     });
                 });
