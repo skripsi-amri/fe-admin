@@ -36,7 +36,7 @@ function AppBar(props: {
       .logout()
       .then((res) => {
         Report.success("Kamu Telah Keluar", "", "Okay");
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = "https://kelola-barang.netlify.app/login";
       })
       .catch((err) => {
         if (err.response.data) {

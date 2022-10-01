@@ -35,7 +35,7 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
           Notify.success(res.data.message, {
             position: "right-bottom",
           });
-          window.location.href = "http://localhost:3000/app";
+          window.location.href = "https://kelola-barang.netlify.app/app";
         })
         .catch((err) => {
           if (err.response.data) {
