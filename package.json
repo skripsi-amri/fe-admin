@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@iconify/react": "^4.0.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
