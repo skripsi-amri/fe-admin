@@ -43,7 +43,9 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
                 refreshToken: res.data.refreshToken,
               }),
             }).then(() => {
-              Notify.success("Login Success");
+              Notify.success("Login Success", {
+                position: "right-bottom",
+              });
               window.location.href = "/app";
             });
           }

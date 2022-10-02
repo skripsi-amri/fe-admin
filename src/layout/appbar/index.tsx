@@ -41,7 +41,7 @@ function AppBar(props: {
             window.location.href = "/login";
           });
         }
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = "/login";
       })
       .catch((err) => {
         if (err.response.data) {
