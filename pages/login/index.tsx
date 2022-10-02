@@ -32,10 +32,20 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
       props
         .login(data)
         .then((res) => {
-          Notify.success(res.data.message, {
-            position: "right-bottom",
-          });
-          window.location.href = "http://localhost:3000/app";
+          if (res.status === 200) {
+            fetch("/api/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                token: res.data.token,
+              }),
+            }).then(() => {
+              Notify.success("Login Success");
+              window.location.href = "/app";
+            });
+          }
         })
         .catch((err) => {
           if (err.response.data) {
