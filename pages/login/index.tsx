@@ -40,6 +40,7 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
               },
               body: JSON.stringify({
                 token: res.data.token,
+                refreshToken: res.data.refreshToken,
               }),
             }).then(() => {
               Notify.success("Login Success");
