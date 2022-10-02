@@ -41,7 +41,6 @@ function AppBar(props: {
             window.location.href = "/login";
           });
         }
-        window.location.href = "/login";
       })
       .catch((err) => {
         if (err.response.data) {
