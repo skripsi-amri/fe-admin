@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Report } from "notiflix";
 axios.defaults.withCredentials = true;
-// const baseURL = 'process.env.NEXT_PUBLIC_HOST';
-const baseURL = 'https://kelola-barang.herokuapp.com/api/v1';
+const baseURL = process.env.NEXT_PUBLIC_HOST;
+// const baseURL = 'https://kelola-barang.herokuapp.com/api/v1';
 
 
 const api = axios.create();
