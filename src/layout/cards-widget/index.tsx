@@ -21,6 +21,12 @@ export default function CardsWidget(props: { data: any }) {
         subtitle={props.data.jumlah_barang}
         bgColor="gray"
       />
+      <CardWidget
+        icon="mdi:warehouse"
+        title={"Total Gudang"}
+        subtitle={props.data.jumlah_gudang}
+        bgColor="orange"
+      />
     </div>
   );
 }

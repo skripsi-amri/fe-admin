@@ -21,10 +21,10 @@ export default function CardWidget(props: {
           : bgColor === "gray"
           ? "bg-gradient-to-l from-gray-400 to-gray-600"
           : bgColor === "orange"
-          ? "bg-gradient-to-l from-yellow-500 to-orange-500"
+          ? "bg-gradient-to-l from-orange-400 to-orange-600"
           : "bg-blue-500"
       }
-    h-32 md:w-[33%] rounded-xl w-full m-1 text-white flex justify-between flex-col py-5 px-3 shadow shadow-blue-100`}
+    h-32 md:w-[24%] rounded-xl w-full m-1 text-white flex justify-between flex-col py-5 px-3 shadow shadow-blue-100`}
     >
       <div className="flex justify-between items-center">
         <Typograhpy
