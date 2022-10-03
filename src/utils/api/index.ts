@@ -2,7 +2,6 @@ import axios from "axios";
 import { Report } from "notiflix";
 axios.defaults.withCredentials = true;
 const baseURL = process.env.NEXT_PUBLIC_HOST;
-// const baseURL = 'https://kelola-barang.herokuapp.com/api/v1';
 
 
 const api = axios.create();
@@ -48,7 +47,6 @@ api.interceptors.response.use(
                         window.location.href = "/login";
                     });
             });
-            // } else if (error.code === "ERR_NETWORK" || error.response.status === 500) {
         } else if (error.code === "ERR_NETWORK") {
             Report.failure("Jaringan Ke Server Bermasalah", "", "Coba Login Ulang", () => {
                 fetch("/api/logout")

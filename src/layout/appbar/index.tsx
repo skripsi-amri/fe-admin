@@ -35,12 +35,8 @@ function AppBar(props: {
     props
       .logout()
       .then((res) => {
-        if (res.status === 200) {
-          fetch("/api/logout").then(() => {
-            Report.success("Kamu Telah Keluar", "", "Okay");
-            window.location.href = "/login";
-          });
-        }
+        Report.success("Kamu Telah Keluar", "", "Okay");
+        window.location.href = "/login";
       })
       .catch((err) => {
         if (err.response.data) {

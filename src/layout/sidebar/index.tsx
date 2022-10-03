@@ -14,7 +14,7 @@ export default function Sidebar(props: {
       } h-full z-20 bg-blue-800 transition-all`}
     >
       <div className="h-20 p-3 flex justify-between px-5 items-center">
-        <p className="text-2xl font-semibold text-white">Logo</p>
+        <p className="text-2xl font-semibold text-white">Amri Alamsyah</p>
         <Iconify
           icon="bi:arrow-left-circle-fill"
           other={"hover:text-gray-100"}

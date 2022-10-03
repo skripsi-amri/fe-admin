@@ -32,23 +32,10 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
       props
         .login(data)
         .then((res) => {
-          if (res.status === 200) {
-            fetch("/api/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                token: res.data.token,
-                refreshToken: res.data.refreshToken,
-              }),
-            }).then(() => {
-              Notify.success("Login Success", {
-                position: "right-bottom",
-              });
-              window.location.href = "/app";
-            });
-          }
+          Notify.success("Login Success", {
+            position: "right-bottom",
+          });
+          window.location.href = "/app";
         })
         .catch((err) => {
           if (err.response.data) {
@@ -67,14 +54,16 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
         <title>Login</title>
       </Head>
 
-      <div className="h-screen flex justify-center items-center flex-col">
-        <div className="text-center md:mb-10">Logo</div>
-        <div className="bg-white w-full shadow shadow-teal-800 h-screen md:w-1/3 md:h-80 rounded p-5 flex md:block justify-center items-center">
+      <div className="h-screen flex bg-gradient-to-l from-cyan-500 to-blue-500 justify-center items-center flex-col">
+        <div className="text-center md:mb-10 text-2xl font-extrabold font-sans">
+          Amri Alamsyah
+        </div>
+        <div className="bg-white w-full shadow shadow-blue-800 h-screen md:w-1/3 md:h-80 rounded p-5 flex md:block justify-center items-center">
           <form onSubmit={handleSubmit}>
             <Typograhpy
               child="MASUK :"
               variant="lg"
-              other={"text-teal-800 font-bold mb-4"}
+              other={"text-blue-800 font-bold mb-4"}
             />
             <TextfieldGroup
               setError={setError}
