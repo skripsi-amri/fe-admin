@@ -53,6 +53,7 @@ const FormGudang = (props: { tambahGudang: (data: any) => Promise<any> }) => {
     <DashboardLayout
       pageName="Form Gudang"
       icon="mdi:warehouse"
+      arrowBack={true}
       main={
         <form onSubmit={handleSubmit} className="mt-5 w-full md:w-1/2">
           <TextfieldGroup

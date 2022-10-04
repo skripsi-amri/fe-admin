@@ -63,6 +63,7 @@ const FormBarang = (props: { tambahBarang: (data: any) => Promise<any> }) => {
     <DashboardLayout
       icon="icon-park-outline:ad-product"
       pageName="Form Barang"
+      arrowBack={true}
       main={
         <form onSubmit={handleSubmit} className="mt-5 w-full md:w-1/2">
           <TextfieldGroup

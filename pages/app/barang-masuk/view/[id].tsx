@@ -9,7 +9,7 @@ import { DataTable } from "../../../../src/layout";
 const column = [
   {
     title: "nama item",
-    dataIndex: "nama_item",
+    dataIndex: "item",
   },
   {
     title: "qty",
@@ -39,6 +39,7 @@ function ViewItems(props: { getBarangMasuk: (id: string) => Promise<any> }) {
     <DashboardLayout
       pageName="Detail Barang Masuk"
       icon="bxs:archive-in"
+      arrowBack={true}
       main={
         <div>
           <div className="mb-6">

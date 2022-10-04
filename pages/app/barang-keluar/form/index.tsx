@@ -86,6 +86,7 @@ const FormBarang = (props: {
     <DashboardLayout
       icon="bxs:archive-out"
       pageName="Form Barang Keluar"
+      arrowBack={true}
       main={
         <div className="mx-3">
           <TextfieldGroup

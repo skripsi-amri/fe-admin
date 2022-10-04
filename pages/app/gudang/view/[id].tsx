@@ -51,6 +51,7 @@ function ViewItems(props: {
     <DashboardLayout
       pageName="Detail Gudang"
       icon="mdi:warehouse"
+      arrowBack={true}
       main={
         <div>
           <div className="mb-6">

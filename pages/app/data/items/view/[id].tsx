@@ -18,8 +18,9 @@ function ViewItems(props: { getBarang: (id: string) => Promise<any> }) {
 
   return (
     <DashboardLayout
-      pageName="ViewItems"
+      pageName="Detail Items"
       icon="icon-park-outline:ad-product"
+      arrowBack={true}
       main={
         <div>
           <div className="mb-6">
