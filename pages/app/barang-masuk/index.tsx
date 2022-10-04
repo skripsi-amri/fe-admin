@@ -40,14 +40,7 @@ function BarangMasuk(props: {
             backgroundColor="transparent"
             color="blue"
             icon="akar-icons:eye"
-            onClick={() => {}}
-          />
-          <IconButton
-            other={"mr-3"}
-            backgroundColor="transparent"
-            color="orange"
-            icon="bxs:edit"
-            onClick={() => router.push(`${router.pathname}/form/${row._id}`)}
+            onClick={() => router.push(`${router.pathname}/view/${row._id}`)}
           />
           <IconButton
             backgroundColor="transparent"

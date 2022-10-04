@@ -43,13 +43,6 @@ function BarangKeluar(props: {
             onClick={() => {}}
           />
           <IconButton
-            other={"mr-3"}
-            backgroundColor="transparent"
-            color="orange"
-            icon="bxs:edit"
-            onClick={() => router.push(`${router.pathname}/form/${row._id}`)}
-          />
-          <IconButton
             backgroundColor="transparent"
             color="red"
             icon="bi:trash-fill"
