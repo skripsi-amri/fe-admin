@@ -40,7 +40,7 @@ function BarangKeluar(props: {
             backgroundColor="transparent"
             color="blue"
             icon="akar-icons:eye"
-            onClick={() => {}}
+            onClick={() => router.push(`${router.pathname}/view/${row._id}`)}
           />
           <IconButton
             backgroundColor="transparent"
