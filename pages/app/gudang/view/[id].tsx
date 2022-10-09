@@ -9,26 +9,15 @@ import { DataTable } from "../../../../src/layout";
 const column = [
   {
     title: "Nama Items",
-    dataIndex: "nama_item",
+    dataIndex: "item",
   },
   {
-    title: "Brand",
-    dataIndex: "merk",
-  },
-  {
-    title: "Ukuran",
-    dataIndex: "ukuran",
-  },
-  {
-    title: "Stok",
-    dataIndex: "stok",
+    title: "Qty",
+    dataIndex: "qty",
   },
 ];
 
-function ViewItems(props: {
-  getGudang: (id: string) => Promise<any>;
-  getAllItems: () => Promise<any>;
-}) {
+function ViewItems(props: { getGudang: (id: string) => Promise<any> }) {
   const router = useRouter();
   const id = router.query.id as string;
   const [detailgudang, setDetailGudang] = useState({} as any);
@@ -38,13 +27,12 @@ function ViewItems(props: {
     if (id) {
       props
         .getGudang(id)
-        .then((res) => setDetailGudang(res.data.result))
+        .then((res) => {
+          setItem(res.data.result.list_barang);
+          setDetailGudang(res.data.result.gudang);
+        })
         .catch((err) => console.log(err));
     }
-    props
-      .getAllItems()
-      .then((res) => setItem(res.data.result))
-      .catch((err) => console.log(err));
   }, [props, id]);
 
   return (
@@ -90,7 +78,6 @@ function ViewItems(props: {
 
 const actions = (dispatch: any) => ({
   getGudang: (id: string) => dispatch(getGudang(id)),
-  getAllItems: () => dispatch(getAllBarang()),
 });
 
 export default connect(null, actions)(ViewItems);
