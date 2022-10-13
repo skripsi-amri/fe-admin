@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { Block } from "notiflix";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { IconButton } from "../../../src/components/atoms";
@@ -56,12 +57,20 @@ function Gudang(props: {
   ];
 
   useEffect(() => {
+    Block.dots("#table", "mengambil data...", {
+      svgColor: "#1e40af",
+      backgroundColor: "#f0f2f1",
+    });
     props
       .getAllGudang()
       .then((res) => {
+        Block.remove("#table");
         setData(res.data.result);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        Block.remove("#table");
+        console.log(err);
+      });
   }, [props]);
 
   return (

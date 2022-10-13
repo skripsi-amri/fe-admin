@@ -28,8 +28,8 @@ function AppBar(props: {
   };
 
   const handleLogout = () => {
-    Loading.pulse({
-      svgColor: "#00695c",
+    Loading.dots("loading...", {
+      svgColor: "#1e40af",
       backgroundColor: "rgba(0, 0, 100, 0.5)",
     });
     props

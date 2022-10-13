@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Notify } from "notiflix";
+import { Loading, Notify } from "notiflix";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { Button, Typograhpy } from "../../src/components/atoms";
@@ -26,18 +26,21 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    Loading.dots("loading...", {
+      svgColor: "#1e40af",
+      backgroundColor: "rgba(0, 0, 100, 0.5)",
+    });
     const check = ValidationSubmit(form, data);
     setCheckForm(!check);
     if (check) {
       props
         .login(data)
         .then((res) => {
-          Notify.success("Login Success", {
-            position: "right-bottom",
-          });
+          Loading.remove();
           window.location.href = "/app";
         })
         .catch((err) => {
+          Loading.remove();
           if (err.response.data) {
             Notify.failure(err.response.data.message, {
               position: "right-bottom",

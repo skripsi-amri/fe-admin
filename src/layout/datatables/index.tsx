@@ -96,12 +96,14 @@ export default function DataTable(props: {
           />
         </div>
       </div>
-      <Table
-        handleSort={handleSort}
-        rowPerPage={limit}
-        column={props.column}
-        data={databody}
-      />
+      <div id="table">
+        <Table
+          handleSort={handleSort}
+          rowPerPage={limit}
+          column={props.column}
+          data={databody}
+        />
+      </div>
     </div>
   );
 }

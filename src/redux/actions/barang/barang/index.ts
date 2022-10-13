@@ -1,18 +1,50 @@
 import { api } from '../../../../utils'
 
 export const getAllBarang = () => (dispatch: any) => {
+    dispatch({
+        type: 'LOADING',
+        value: true
+    });
     return new Promise((resolve, reject) => {
         api.get('/bbarang')
-            .then(res => resolve(res))
-            .catch(err => reject(err))
+            .then(res => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                resolve(res)
+            })
+            .catch(err => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                reject(err)
+            })
     })
 }
 
 export const getBarang = (id: string) => (dispatch: any) => {
+    dispatch({
+        type: 'LOADING',
+        value: true
+    });
     return new Promise((resolve, reject) => {
         api.get('/bbarang/' + id)
-            .then((res) => resolve(res))
-            .catch((err) => reject(err))
+            .then(res => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                resolve(res)
+            })
+            .catch(err => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                reject(err)
+            })
     })
 }
 
@@ -22,10 +54,26 @@ export const tambahBarang = (data: {
     id_ukuran: string,
     stok: number,
 }) => (dispatch: any) => {
+    dispatch({
+        type: 'LOADING',
+        value: true
+    });
     return new Promise((resolve, reject) => {
         api.post('/bbarang', data)
-            .then((res) => resolve(res))
-            .catch((err) => reject(err))
+            .then(res => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                resolve(res)
+            })
+            .catch(err => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                reject(err)
+            })
     })
 }
 
@@ -35,17 +83,49 @@ export const editBarang = (id: string, data: {
     id_ukuran: string,
     stok: number,
 }) => (dispatch: any) => {
+    dispatch({
+        type: 'LOADING',
+        value: true
+    });
     return new Promise((resolve, reject) => {
         api.patch(`/bbarang/${id}`, data)
-            .then((res) => resolve(res))
-            .catch((err) => reject(err))
+            .then(res => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                resolve(res)
+            })
+            .catch(err => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                reject(err)
+            })
     })
 }
 
 export const hapusBarang = (id: string) => (dispatch: any) => {
+    dispatch({
+        type: 'LOADING',
+        value: true
+    });
     return new Promise((resolve, reject) => {
         api.delete(`/bbarang/${id}`)
-            .then((res) => resolve(res))
-            .catch((err) => reject(err))
+            .then(res => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                resolve(res)
+            })
+            .catch(err => {
+                dispatch({
+                    type: 'LOADING',
+                    value: false
+                });
+                reject(err)
+            })
     })
 }
