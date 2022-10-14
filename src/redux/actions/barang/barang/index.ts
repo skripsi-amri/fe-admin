@@ -1,11 +1,11 @@
 import { api } from '../../../../utils'
 
 export const getAllBarang = () => (dispatch: any) => {
-    dispatch({
-        type: 'LOADING',
-        value: true
-    });
     return new Promise((resolve, reject) => {
+        dispatch({
+            type: 'LOADING',
+            value: true
+        });
         api.get('/bbarang')
             .then(res => {
                 dispatch({

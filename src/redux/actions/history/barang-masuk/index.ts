@@ -1,15 +1,15 @@
 import { api } from "../../../../utils"
 
 export const getAllBarangMasuk = () => (dispatch: any) => {
-    dispatch({
-        type: 'LOADING',
-        value: true
-    });
     return new Promise((resolve, reject) => {
+        dispatch({
+            type: 'LOADING',
+            value: true
+        });
         api.get('/history/barang-masuk')
             .then(res => {
                 dispatch({
-                    type: 'LOADING',
+                    type: 'LOADING', 
                     value: false
                 });
                 resolve(res)

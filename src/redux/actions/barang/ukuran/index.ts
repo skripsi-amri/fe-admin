@@ -1,11 +1,11 @@
 import { api } from '../../../../utils'
 
 export const getAllUkuranBarang = () => (dispatch: any) => {
-    dispatch({
-        type: 'LOADING',
-        value: true
-    });
     return new Promise((resolve, reject) => {
+        dispatch({
+            type: 'LOADING',
+            value: true
+        });
         api.get('/barang/ukuran')
             .then(res => {
                 dispatch({
