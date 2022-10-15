@@ -7,6 +7,7 @@ export default function Sidebar(props: {
   setFullWidth: (bool: boolean) => void;
 }) {
   const router = useRouter();
+
   return (
     <div
       className={`fixed overflow-auto ${

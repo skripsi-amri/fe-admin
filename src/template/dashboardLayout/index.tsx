@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppBar, Header, Sidebar } from "../../layout";
 
 export default function DashboardLayout(props: {
@@ -9,6 +9,16 @@ export default function DashboardLayout(props: {
   arrowBack?: boolean;
 }) {
   const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      const width_layar = window.innerWidth;
+      if (width_layar < 600) {
+        setOpen(false);
+      }
+    }
+  }, []);
+
   return (
     <>
       <Head>
