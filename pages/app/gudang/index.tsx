@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
 import { Block } from "notiflix";
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { IconButton } from "../../../src/components/atoms";
+import { MobileIconList } from "../../../src/components/molecules";
 import { DataTable } from "../../../src/layout";
 import { getAllGudang, hapusGudang } from "../../../src/redux/actions";
 import { DashboardLayout } from "../../../src/template";
@@ -12,7 +11,6 @@ function Gudang(props: {
   getAllGudang: () => Promise<any>;
   hapusGudang: (id: string) => Promise<any>;
 }) {
-  const router = useRouter();
   const [data, setData] = useState([]);
 
   const column = [
@@ -28,30 +26,13 @@ function Gudang(props: {
       title: "aksi",
       type: "custom",
       cell: (row: any) => (
-        <div className="text-center">
-          <IconButton
-            other={"mr-3"}
-            backgroundColor="transparent"
-            color="blue"
-            icon="akar-icons:eye"
-            onClick={() => router.push(`${router.pathname}/view/${row._id}`)}
-          />
-          <IconButton
-            other={"mr-3"}
-            backgroundColor="transparent"
-            color="orange"
-            icon="bxs:edit"
-            onClick={() => router.push(`${router.pathname}/form/${row._id}`)}
-          />
-          <IconButton
-            backgroundColor="transparent"
-            color="red"
-            icon="bi:trash-fill"
-            onClick={() =>
-              handleRemove(row._id, props.hapusGudang, setData, data)
-            }
-          />
-        </div>
+        <MobileIconList
+          row={row}
+          data={data}
+          setData={setData}
+          hapusBarang={props.hapusGudang}
+          handleRemove={handleRemove}
+        />
       ),
     },
   ];

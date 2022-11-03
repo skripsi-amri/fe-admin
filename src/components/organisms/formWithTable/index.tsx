@@ -14,6 +14,7 @@ export default function FormWithTable(props: {
   const [dataBarang, setDataBarang] = useState([] as any);
   const [checkForm, setCheckForm] = useState(false);
   const [error, setError] = useState(null);
+  const [showPopUp, setShowPopUp] = useState(false);
 
   const addBarang = (e: any) => {
     e.preventDefault();
@@ -25,29 +26,44 @@ export default function FormWithTable(props: {
         ...props.data,
         items: [...dataBarang, item],
       });
+      setShowPopUp(false);
+      setitem({});
+      e.target.reset();
     }
   };
 
   return (
     <div>
-      <form onSubmit={addBarang} id="form-barang" className="w-full md:w-1/2">
-        <TextfieldGroup
-          setError={setError}
-          error={error}
-          showError={checkForm}
-          form={props.form}
-          setData={setitem}
-          data={item}
+      <div className="mt-2 flex justify-end">
+        <Button
+          onClick={() => setShowPopUp(true)}
+          child="Tambah Items"
+          backgroundColor="green"
         />
-        <div className="mt-2 flex justify-end">
-          <Button
-            type="submit"
-            form="form-barang"
-            child="Tambah Items"
-            backgroundColor="green"
-          />
+      </div>
+      <div
+        className={`${
+          showPopUp ? "block" : "hidden"
+        } w-full h-full shadow-lg bg-white z-10 my-3 p-5 rounded-md`}
+      >
+        <div
+          className="flex justify-end text-lg font-extrabold text-red-600 cursor-pointer"
+          onClick={() => setShowPopUp(false)}
+        >
+          X
         </div>
-      </form>
+        <form onSubmit={addBarang}>
+          <TextfieldGroup
+            setError={setError}
+            error={error}
+            showError={checkForm}
+            form={props.form}
+            setData={setitem}
+            data={item}
+          />
+          <Button type="submit" other={"w-full mb-6"} child={"Simpan"} />
+        </form>
+      </div>
       <div className="my-3">
         <Table
           column={props.column}

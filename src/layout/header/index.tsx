@@ -7,6 +7,7 @@ export default function Header(props: {
   arrowBack?: boolean;
 }) {
   const router = useRouter();
+
   return (
     <div className="py-7 flex justify-center md:justify-between px-16 items-center">
       <div className="flex items-center">
@@ -33,7 +34,11 @@ export default function Header(props: {
         </div>
       </div>
       <div className="hidden md:block">
-        <Typograhpy other={"select-none"} variant="sm" child="Home / About" />
+        <Typograhpy
+          other={"select-none"}
+          variant="sm"
+          child={router.pathname.split("/").join(" / ")}
+        />
       </div>
     </div>
   );

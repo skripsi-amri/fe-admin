@@ -42,8 +42,8 @@ const formItems = [
 
 const column = [
   {
-    title: "nama item",
-    dataIndex: "nama_item",
+    title: "id item",
+    dataIndex: "id_item",
   },
   {
     title: "qty",

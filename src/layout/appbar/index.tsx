@@ -100,36 +100,8 @@ const PopUpMenu = (props: {
     <div
       className={`${
         props.showProfileMenu ? "absolute" : "hidden"
-      } right-0 z-20 border w-56 py-2 mt-52 mr-16 overflow-hidden bg-white rounded-md shadow-sm shadow-blue-50`}
+      } right-0 z-20 border w-56 py-2 mt-24 mr-16 overflow-hidden bg-white rounded-md shadow-sm shadow-blue-50`}
     >
-      <div className="flex items-center cursor-default p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        {/* <img
-          className="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
-          src="https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW4lMjBibHVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=face&w=500&q=200"
-          alt="Sarrahman"
-        /> */}
-        <Iconify
-          icon="mdi:face-man-profile"
-          color="blue"
-          other={"flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"}
-        />
-        <div className="mx-1">
-          <h1 className="text-sm font-semibold text-gray-700">Sarrahman</h1>
-          <p className="text-sm text-gray-500">sarrahman@gmail.com</p>
-        </div>
-      </div>
-
-      <hr className="border-gray-200" />
-
-      <div className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-blue-50">
-        <p>My Profile</p>
-      </div>
-
-      <div className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-blue-50">
-        <p>Pengaturan</p>
-      </div>
-
       <div
         onClick={props.handleLogout}
         className="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-blue-50"
