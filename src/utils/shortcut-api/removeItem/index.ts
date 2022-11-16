@@ -9,8 +9,7 @@ const handleRemove = (id: any, deleteApi: (id: string) => Promise<any>, setData:
         () => {
             deleteApi(id)
                 .then((res) => {
-                    console.log(res)
-                    setData(data.filter((item: any) => item._id !== id));
+                    setData(data.filter((item: any) => item.id !== id));
                     Notify.success(res.data.message, {
                         position: "right-bottom",
                     });

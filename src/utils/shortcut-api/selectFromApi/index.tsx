@@ -20,7 +20,7 @@ function SelectFromApi(props: {
         const newKategori = res.data.result.map((item: any) => {
           return {
             label: item[props.labelOptions],
-            value: item._id,
+            value: item.id,
           };
         });
         setOptions(newKategori);

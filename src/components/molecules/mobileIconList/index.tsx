@@ -23,17 +23,13 @@ export default function MobileIconList(props: {
           color="blue"
           icon="bx:dots-horizontal-rounded"
           onClick={() => {
-            console.log({
-              status: !showMenu.status,
-              id: props.row._id,
-            });
             setShowMenu({
               status: !showMenu.status,
-              id: props.row._id,
+              id: props.row.id,
             });
           }}
         />
-        {showMenu.id === props.row._id && (
+        {showMenu.id === props.row.id && (
           <PopUpMenu
             hapusBarang={props.hapusBarang}
             row={props.row}
@@ -51,7 +47,7 @@ export default function MobileIconList(props: {
           color="blue"
           icon="akar-icons:eye"
           onClick={() =>
-            router.push(`${router.pathname}/view/${props.row._id}`)
+            router.push(`${router.pathname}/view/${props.row.id}`)
           }
         />
         <IconButton
@@ -60,7 +56,7 @@ export default function MobileIconList(props: {
           color="orange"
           icon="bxs:edit"
           onClick={() =>
-            router.push(`${router.pathname}/form/${props.row._id}`)
+            router.push(`${router.pathname}/form/${props.row.id}`)
           }
         />
         <IconButton
@@ -69,7 +65,7 @@ export default function MobileIconList(props: {
           icon="bi:trash-fill"
           onClick={() =>
             props.handleRemove(
-              props.row._id,
+              props.row.id,
               props.hapusBarang,
               props.setData,
               props.data
@@ -125,7 +121,7 @@ const PopUpMenu = (props: {
           icon="bi:trash-fill"
           onClick={() =>
             props.handleRemove(
-              props.row._id,
+              props.row.id,
               props.hapusBarang,
               props.setData,
               props.data

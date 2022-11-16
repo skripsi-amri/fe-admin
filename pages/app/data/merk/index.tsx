@@ -40,7 +40,7 @@ function Merk(props: {
             color="red"
             icon="bi:trash-fill"
             onClick={() =>
-              handleRemove(row._id, props.hapusMerkBarang, setData, data)
+              handleRemove(row.id, props.hapusMerkBarang, setData, data)
             }
           />
         </div>

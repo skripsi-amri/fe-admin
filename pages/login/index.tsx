@@ -4,7 +4,6 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { Button, Typograhpy } from "../../src/components/atoms";
 import { TextfieldGroup } from "../../src/components/organisms";
-import { ValidationSubmit } from "../../src/functions";
 import { LoginApi } from "../../src/redux/actions";
 
 const form = [
@@ -21,7 +20,6 @@ const form = [
 
 const Login = (props: { login: (data: any) => Promise<any> }) => {
   const [data, setData] = useState({} as any);
-  const [checkForm, setCheckForm] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSubmit = (e: any) => {
@@ -30,25 +28,21 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
       svgColor: "#1e40af",
       backgroundColor: "rgba(0, 0, 100, 0.5)",
     });
-    const check = ValidationSubmit(form, data);
-    setCheckForm(!check);
-    if (check) {
-      props
-        .login(data)
-        .then((res) => {
-          Loading.remove();
-          window.location.href = "/app";
-        })
-        .catch((err) => {
-          Loading.remove();
-          if (err.response.data) {
-            Notify.failure(err.response.data.message, {
-              position: "right-bottom",
-            });
-            setError(err.response.data.errors);
-          }
-        });
-    }
+    props
+      .login(data)
+      .then((res) => {
+        Loading.remove();
+        window.location.href = "/app";
+      })
+      .catch((err) => {
+        Loading.remove();
+        if (err.response.data) {
+          Notify.failure(err.response.data.message, {
+            position: "right-bottom",
+          });
+          setError(err.response.data.errors);
+        }
+      });
   };
 
   return (
@@ -71,7 +65,7 @@ const Login = (props: { login: (data: any) => Promise<any> }) => {
             <TextfieldGroup
               setError={setError}
               error={error}
-              showError={checkForm}
+              showError={false}
               form={form}
               setData={setData}
               data={data}
